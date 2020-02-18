@@ -1,0 +1,30 @@
+<div class="">
+  <div class="ml-4 mt-4 mb-4">
+      <div class="card bg-light flex-row flex-wrap" style="width: 600px;">
+        <div class="card-header border-0 bg-light">
+            <img class="card-img-top img-thumbnail" src="https://images.pexels.com/photos/1446948/pexels-photo-1446948.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=200" alt="Card image cap">
+        </div>
+      <div class="bg-light">
+            <div class="actions">
+            <br>
+            <% if current_user.first_name == nil || current_user.last_name == nil || current_user.description == nil %>
+        
+            <%= button_to "Veuillez mettre à jour votre profil", edit_user_path, class: 'float-right btn btn-success', method: 'get' %>
+
+            <% else %>
+
+            <%= button_to "Modifier le profil", edit_user_path, class: 'float-right btn btn-primary', method: 'get' %>
+
+            <% end %>
+            
+      
+            </div>
+          <br/><br/>
+          <h5 class="card-title font-weight-bold"><%= @user.first_name%> <%= @user.last_name%></h5>
+            <br>
+            <p class="card-text text-body"><strong>Email :</strong> <%= @user.email %></p>
+            <p class="card-text text-body"><strong>Description :</strong> <%= @user.description %></p>
+          </div>
+      </div>
+  </div>
+  </div>
