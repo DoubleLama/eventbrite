@@ -13,7 +13,7 @@
             <br>
             <div class="field">
              
-              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: 'Mot de passe' %>
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: 'Mot de passe (6 caractères minimum)' %>
             </div>
             
             <br>
@@ -35,5 +35,8 @@
     </div>
 </div>  
 
+  <div class= "container"> 
+        
+    <%= render "devise/shared/links"%>
 
-<%= render "devise/shared/links" %>
+  </div>

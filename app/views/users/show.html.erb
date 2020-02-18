@@ -7,17 +7,10 @@
       <div class="bg-light">
             <div class="actions">
             <br>
-            <% if current_user.first_name == nil || current_user.last_name == nil || current_user.description == nil %>
-        
-            <%= button_to "Veuillez mettre à jour votre profil", edit_user_path, class: 'float-right btn btn-success', method: 'get' %>
-
-            <% else %>
-
-            <%= button_to "Modifier le profil", edit_user_path, class: 'float-right btn btn-primary', method: 'get' %>
-
-            <% end %>
-            
-      
+            <% current_user.first_name == nil || current_user.last_name == nil || current_user.description == nil %>
+            <%= button_to "Mettre à jour vos informations", edit_user_path, class: 'float-right btn btn-success', method: 'get' %>
+            <br>
+            <%= button_to "Modifier email/mot de passe", edit_user_registration_path, class: 'float-right btn btn-secondary', method: 'get' %>
             </div>
           <br/><br/>
           <h5 class="card-title font-weight-bold"><%= @user.first_name%> <%= @user.last_name%></h5>
@@ -28,3 +21,23 @@
       </div>
   </div>
   </div>
+<div class="container">
+    <h1> Les events que tu organises</h1>
+    <div class="album py-5 ">
+        <div class="row">
+        <% @user_events.each do |event| %>
+            <div class="col-md-4">
+            <div class="card" style="width: 80%;">
+                <div class="card-body">
+                <h5 class="card-title"><%=event.title%></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Description :  <%=event.description%></h6>
+                <p class="card-text">Date : <%=event.start_date.strftime('%d-%m-%Y')%></p>
+                <a href="#" class="card-link"><%= link_to "Lien de l'event", event_path(event.id) %></a>
+                </div>
+            </div>
+            <br>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>

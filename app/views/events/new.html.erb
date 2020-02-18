@@ -1,2 +1,19 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container mt-5 form-group">
+   <div class= "bg-light container fieldset mt-3 mr3 pt-3 fieldset col-lg-4 ">
+       <h1 class="text-center border-bottom">Créer un évènement</h1>
+       <br>
+       <%= form_tag url_for(action: 'create'), method: "post" do %>
+           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+           <%= text_field_tag 'title', @event.title, class:"form-control", placeholder: "Titre" %>
+           <br>
+           <%= text_area_tag 'description', @event.description, class:"form-control", placeholder: "Description"  %><br>
+           <%= date_field_tag 'start_date', @event.start_date, class:"form-control", placeholder: "Date"  %><br>
+           <%= time_field_tag 'duration', @event.duration, class:"form-control", placeholder: "Durée"  %><br>
+           <%= text_area_tag 'location', @event.location, class:"form-control", placeholder: "Lieu"  %><br>
+           <%= text_area_tag 'price', @event.price, class:"form-control", placeholder: "Prix"  %><br>
+           <br>
+           <div class="form-group text-center">
+                <button type="submit" class="btn btn-lg btn-success">Créer l'évènement</button>
+           </div>
+       <% end %>
+   </div>

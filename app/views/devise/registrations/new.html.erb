@@ -1,39 +1,50 @@
 <div class="container mt-5 form-group">
 
-    <div class= "bg-light container fieldset mt-3 mr3 pt-3 fieldset col-lg-4 ">
-    
-        <h1 class="text-center">Inscription</h1>
-        <p class="border-bottom"></p>
+  <div class= "bg-light container fieldset mt-3 mr3 pt-3 fieldset col-lg-4 ">
+  
+      <h1 class="text-center">Inscription</h1>
+      <p class="border-bottom"></p>
 
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-            <div class="field">
-              
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: 'Email' %>
-            </div>
-            <br>
-            <div class="field">
-    
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: 'Mot de passe' %>
-            </div>
-            <br>
-            <div class="field">
-              
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: 'Vérification du mot de passe'  %>
-            </div>
-            <br>
-            <div class="actions">
-              <button type="submit" class="float-right btn btn-success">Créer</button>
-            </div>
-          <% end %>
+          <div class="field">
+            
+            <%= f.text_field :first_name, class: "form-control", placeholder: 'Prénom' %>
+          </div>
+          <br>
 
+          <div class="field">
+            
+            <%= f.text_field :last_name, class: "form-control", placeholder: 'Nom' %>
+          </div>
+          <br>
 
-          <div class= "container"> 
-               
-            <%= render "devise/shared/links"%>
+          <div class="field">
+            
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: 'Email' %>
+          </div>
+
+          <br>
+          <div class="field">
+  
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: 'Mot de passe (6 caractères minimum)' %>
 
           </div>
+          <br>
+          <div class="field">
+            
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: 'Vérification du mot de passe'  %>
+          </div>
+          <br>
+          <div class="actions">
+            <button type="submit" class="float-right btn btn-success">Créer</button>
+          </div>
+        <% end %>
+
+
+        <div class= "container"> 
+              
+          <%= render "devise/shared/links"%>
+
+        </div>
